@@ -2,3 +2,7 @@ server/node_modules
 topnews/node_modules
 server/.env
 topnews/.env
+server/dist
+topnews/dist
+server/.vercel
+topnews/.vercel

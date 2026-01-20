@@ -21,5 +21,22 @@ async function fetchAllData() {
 
 //save the data to db
 
+export async function saveDataToDB(data) {
+    try {
+        const res = await fetch('https://newsserver-ochre.vercel.app/news', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+        const result = await res.json();
+        return result;
+    }
+    catch (error) {
+        console.error("Error saving data to DB:", error);
+    }
+}
+
 
 export default fetchAllData;

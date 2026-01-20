@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import fetchAllData, { fetchFilteredData } from "../utils/data";
+import fetchAllData, { fetchFilteredData, saveDataToDB } from "../utils/data";
 import Card from "../components/News/Card";
 import NewsFilters from "../components/News/Filter";
 
@@ -36,6 +36,7 @@ const Homepage = () => {
     setLoading(true);
     const data = await fetchFilteredData(filters);
     setData(data.articles);
+    await saveDataToDB(data.articles);
     setLoading(false);
   };
 
